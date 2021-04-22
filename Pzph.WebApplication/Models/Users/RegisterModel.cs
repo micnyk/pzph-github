@@ -1,4 +1,4 @@
-﻿namespace Pzph.WebApplication.Models
+﻿namespace Pzph.WebApplication.Models.Users
 {
     public class RegisterModel
     {

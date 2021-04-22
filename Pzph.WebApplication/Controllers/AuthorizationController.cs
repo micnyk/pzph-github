@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Pzph.ServiceLayer.Exceptions;
 using Pzph.ServiceLayer.Users.Services;
 using Pzph.WebApplication.Models;
+using Pzph.WebApplication.Models.Users;
 
 namespace Pzph.WebApplication.Controllers
 {
@@ -22,17 +23,26 @@ namespace Pzph.WebApplication.Controllers
             try
             {
                 await _usersService.Register(model.Name, model.Email, model.PhoneNumber, model.Password);
+                return Ok();
             }
             catch (ValidationException e)
             {
                 return BadRequest(e.Message);
             }
-            catch (Exception)
-            {
-                return StatusCode(500);
-            }
+        }
 
-            return Ok();
+        [HttpPost("/api/auth/login")]
+        public async Task<IActionResult> Login([FromBody] LoginModel model)
+        {
+            try
+            {
+                var tokens = await _usersService.Login(model.Email, model.Password);
+                return Ok(tokens);
+            }
+            catch (ValidationException e)
+            {
+                return BadRequest(e.Message);
+            }
         }
     }
 }

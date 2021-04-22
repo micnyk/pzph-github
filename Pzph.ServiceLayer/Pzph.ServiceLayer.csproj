@@ -5,12 +5,16 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Folder Include="Contractors\Services" />
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.5" />
+        <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.5" />
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.5" />
-        <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.5" />
+      <Folder Include="Contractors\Services" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Pzph.Shared\Pzph.Shared.csproj" />
     </ItemGroup>
 
 </Project>

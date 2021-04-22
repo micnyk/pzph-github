@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using Pzph.ServiceLayer.Bookings.Domain;
 using Pzph.ServiceLayer.Common;
 using Pzph.ServiceLayer.Users.Domain;
 
@@ -22,5 +24,7 @@ namespace Pzph.ServiceLayer.Customers.Domain
         public virtual User User { get; }
 
         public string UserId { get; }
+
+        public virtual ICollection<Booking> Bookings { get; set; } = new List<Booking>();
     }
 }

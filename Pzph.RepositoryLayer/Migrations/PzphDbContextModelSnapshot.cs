@@ -154,6 +154,24 @@ namespace Pzph.RepositoryLayer.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("Pzph.ServiceLayer.Bookings.Domain.Booking", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CustomerId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CustomerId");
+
+                    b.ToTable("Bookings");
+                });
+
             modelBuilder.Entity("Pzph.ServiceLayer.Contractors.Domain.Contractor", b =>
                 {
                     b.Property<string>("Id")
@@ -337,6 +355,15 @@ namespace Pzph.RepositoryLayer.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Pzph.ServiceLayer.Bookings.Domain.Booking", b =>
+                {
+                    b.HasOne("Pzph.ServiceLayer.Customers.Domain.Customer", "Customer")
+                        .WithMany("Bookings")
+                        .HasForeignKey("CustomerId");
+
+                    b.Navigation("Customer");
+                });
+
             modelBuilder.Entity("Pzph.ServiceLayer.Contractors.Domain.Contractor", b =>
                 {
                     b.HasOne("Pzph.ServiceLayer.Users.Domain.User", "User")
@@ -367,6 +394,11 @@ namespace Pzph.RepositoryLayer.Migrations
             modelBuilder.Entity("Pzph.ServiceLayer.Contractors.Domain.Contractor", b =>
                 {
                     b.Navigation("OfferedServices");
+                });
+
+            modelBuilder.Entity("Pzph.ServiceLayer.Customers.Domain.Customer", b =>
+                {
+                    b.Navigation("Bookings");
                 });
 
             modelBuilder.Entity("Pzph.ServiceLayer.Users.Domain.User", b =>
