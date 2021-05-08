@@ -9,5 +9,11 @@ namespace Pzph.WebApplication.Extensions
         {
             return claimsPrincipal.FindFirstValue(Claims.CustomerId);
         }
+
+        public static string GetContractorId(this ClaimsPrincipal claimsPrincipal)
+        {
+            return claimsPrincipal.FindFirstValue(Claims.ContractorId);
+        }
+
     }
 }
