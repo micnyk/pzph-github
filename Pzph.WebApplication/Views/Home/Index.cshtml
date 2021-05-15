@@ -1,0 +1,30 @@
+@model IEnumerable<Pzph.WebApplication.Models.Services.ServiceModel>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" href="~/styles/style.css">
+</head>
+<body>
+@foreach (var service in Model)
+{
+    <h1> @service.Id </h1>
+}
+<div>
+    <img class="lines" src="images/Lines_up.svg">
+    <div class="logo-wrapper">
+        <img class="logo" src="images/PH_Service_logo_Vert.png">
+    </div>
+    <img class="lines down" src="images/Lines_down.svg">
+    <div class="login-register">
+        Zaloguj się
+    </div>
+</div>
+</body>
+</html>

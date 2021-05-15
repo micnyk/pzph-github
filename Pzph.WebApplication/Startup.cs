@@ -47,6 +47,9 @@ namespace Pzph.WebApplication
 
             services.AddScoped<IBookingsRepository, BookingsRepository>();
             services.AddScoped<IBookingsService, BookingsService>();
+
+            services.AddRazorPages();
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -62,6 +65,8 @@ namespace Pzph.WebApplication
             }
 
             app.UseHttpsRedirection();
+
+            app.UseStaticFiles();
 
             app.UseIdentityServer();
 
