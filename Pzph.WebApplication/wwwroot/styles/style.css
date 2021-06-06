@@ -1,25 +1,124 @@
 body {
     margin: 0;
     padding: 0;
+    font-family: Poppins;
 }
 
 .login-register {
     background: #93D3D8 0% 0% no-repeat padding-box;
-    border-radius: 30px 30px 0px 0px;
-    height: 225px;
+    border-radius: 35px 35px 0px 0px;
+    height: 130px;
     position: fixed;
     bottom: 0;
     width: 100%;
+    padding: 20px 0;
 }
-.lines{
+
+.login-register a {
+    font-size: 20px;
+    width: 250px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.login-register a.secondary {
+    margin-top: 20px;
+}
+
+.lines {
     width: 100%;
 }
+
+.lines.up {
+    margin-top: -50px;
+}
+
 .lines.down {
     position: fixed;
     left: 0;
-    bottom: 100px;
+    bottom: 50px;
 }
-.logo-wrapper{
+
+.logo-wrapper {
     width: 100%;
+    margin-top: 30px;
     text-align: center;
+}
+
+.logo-wrapper .logo {
+    width: 50%;
+    height: auto;
+}
+
+a {
+    text-decoration: none;
+    text-align: center;
+}
+
+a.primary {
+    background: #F47368 0% 0% no-repeat padding-box;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+}
+
+a.secondary {
+    background: none;
+    border: 3px solid #FFFFFF;
+    border-radius: 10px;
+    color: white;
+    padding: 10px 20px;
+}
+
+main {
+    width: 100vw;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.register {
+    height: 100vh;
+    justify-content: space-between;
+}
+
+.register-panel {
+    flex: 0 1 80%;
+    background: #93D3D8 0% 0% no-repeat padding-box;
+    border-radius: 35px 35px 0px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 0 20px;
+}
+
+.register-panel h3 {
+    font-weight: 500;
+    font-size: 32px;
+    color: white;
+}
+
+input {
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.register-form *:not(:first-child) {
+    margin-top: 20px;
+}
+
+a:hover {
+    color: green;
+}
+
+.register a {
+    font-size: 12px;
 }
