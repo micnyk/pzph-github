@@ -15,5 +15,17 @@ namespace Pzph.WebApplication.Controllers
         {
             return View();
         }
+        
+        [HttpGet("/login")]
+        public IActionResult Login()
+        {
+            return View();
+        }
+        
+        [HttpGet("/choice")]
+        public IActionResult Choice()
+        {
+            return View();
+        }
     }
 }
