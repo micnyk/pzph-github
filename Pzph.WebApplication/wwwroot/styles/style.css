@@ -156,3 +156,42 @@ a:hover {
 .login a {
     font-size: 12px;
 }
+
+.choice {
+    background-color: #93D3D8;
+    padding-top: 86px;
+}
+
+.tiles-panel {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.tile {
+    height: 297px;
+    width: calc(50% - 30px);
+    display: flex;
+    padding: 10px;
+}
+
+.tile-content {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-radius: 4px;
+    font-size: 20px;
+
+}
+
+
+.top-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 81px;
+    z-index: 9999;
+    background-color: white;
+}
