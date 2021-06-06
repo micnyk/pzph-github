@@ -84,6 +84,11 @@ main {
     justify-content: space-between;
 }
 
+.login {
+    height: 100vh;
+    justify-content: space-between;
+}
+
 .register-panel {
     flex: 0 1 80%;
     background: #93D3D8 0% 0% no-repeat padding-box;
@@ -94,7 +99,23 @@ main {
     padding: 0 20px;
 }
 
+.login-panel {
+    flex: 0 1 80%;
+    background: #93D3D8 0% 0% no-repeat padding-box;
+    border-radius: 35px 35px 0px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 0 20px;
+}
+
 .register-panel h3 {
+    font-weight: 500;
+    font-size: 32px;
+    color: white;
+}
+
+.login-panel h3 {
     font-weight: 500;
     font-size: 32px;
     color: white;
@@ -111,7 +132,16 @@ input {
     flex-direction: column;
 }
 
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
 .register-form *:not(:first-child) {
+    margin-top: 20px;
+}
+
+.login-form *:not(:first-child) {
     margin-top: 20px;
 }
 
@@ -120,5 +150,9 @@ a:hover {
 }
 
 .register a {
+    font-size: 12px;
+}
+
+.login a {
     font-size: 12px;
 }
