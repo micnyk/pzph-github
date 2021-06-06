@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Pzph.ServiceLayer.Bookings.Domain;
+using Pzph.ServiceLayer.Categories.Domain;
 using Pzph.ServiceLayer.Contractors.Domain;
 using Pzph.ServiceLayer.Customers.Domain;
 using Pzph.ServiceLayer.Users.Domain;
@@ -18,6 +19,7 @@ namespace Pzph.RepositoryLayer
         public DbSet<Service> Services { get; set; }
 
         public DbSet<Booking> Bookings { get; set; }
+        public DbSet<Category> Category { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -53,6 +55,14 @@ namespace Pzph.RepositoryLayer
                 b.HasKey(x => x.Id);
                 b.Property(x => x.CreatedAt);
                 b.HasOne(x => x.Customer).WithMany(x => x.Bookings).HasForeignKey(x => x.CustomerId);
+            });
+
+            builder.Entity<Category>(b =>
+            {
+                b.HasKey(x => x.Id);
+                b.Property(x => x.CreatedAt);
+                b.Property(x => x.Name);
+                b.HasMany(x => x.Services).WithOne(x => x.Category);
             });
         }
     }

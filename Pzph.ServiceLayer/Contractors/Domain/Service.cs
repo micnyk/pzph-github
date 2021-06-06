@@ -1,4 +1,5 @@
 ﻿using System;
+using Pzph.ServiceLayer.Categories.Domain;
 using Pzph.ServiceLayer.Common;
 
 namespace Pzph.ServiceLayer.Contractors.Domain
@@ -19,9 +20,11 @@ namespace Pzph.ServiceLayer.Contractors.Domain
         }
 
         public virtual Contractor Contractor { get; }
+        public virtual Category Category { get; }
 
         public string Name { get; }
 
         public string Description { get; }
+        
     }
 }
