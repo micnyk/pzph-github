@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Pzph.RepositoryLayer;
 
 namespace Pzph.RepositoryLayer.Migrations
 {
     [DbContext(typeof(PzphDbContext))]
-    partial class PzphDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210605102807_Dodanie kategorii")]
+    partial class Dodaniekategorii
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
