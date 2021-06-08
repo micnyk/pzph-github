@@ -89,6 +89,11 @@ main {
     justify-content: space-between;
 }
 
+.services-description {
+    height: 100vh;
+    justify-content: space-between;
+}
+
 .register-panel {
     flex: 0 1 80%;
     background: #93D3D8 0% 0% no-repeat padding-box;
@@ -109,6 +114,16 @@ main {
     padding: 0 20px;
 }
 
+.service-description-panel {
+    flex: 0 1 80%;
+    background: #93D3D8 0% 0% no-repeat padding-box;
+    border-radius: 35px 35px 0px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 0 20px;
+}
+
 .register-panel h3 {
     font-weight: 500;
     font-size: 32px;
@@ -116,6 +131,12 @@ main {
 }
 
 .login-panel h3 {
+    font-weight: 500;
+    font-size: 32px;
+    color: white;
+}
+
+.service-description-panel h3 {
     font-weight: 500;
     font-size: 32px;
     color: white;
@@ -157,6 +178,10 @@ a:hover {
     font-size: 12px;
 }
 
+.services-description a {
+    font-size: 12px;
+}
+
 .choice {
     background-color: #93D3D8;
     padding-top: 86px;
@@ -194,4 +219,15 @@ a:hover {
     height: 81px;
     z-index: 9999;
     background-color: white;
+}
+
+.service-description-text{
+    color: white;
+}
+
+.back{
+    font-size: 40px;
+    color: #F47368;
+    position: relative;
+    top: 70px;
 }
