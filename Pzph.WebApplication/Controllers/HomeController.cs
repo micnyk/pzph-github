@@ -99,5 +99,17 @@ namespace Pzph.WebApplication.Controllers
         {
             return View();
         }
+        
+        [HttpGet("/newservice")]
+        public IActionResult NewService()
+        {
+            return View();
+        }
+        
+        [HttpGet("/status")]
+        public IActionResult Status()
+        {
+            return View();
+        }
     }
 }
