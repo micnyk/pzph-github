@@ -56,7 +56,7 @@ a {
     text-align: center;
 }
 
-a.primary {
+.primary {
     background: #F47368 0% 0% no-repeat padding-box;
     border-radius: 10px;
     border: none;
@@ -64,7 +64,7 @@ a.primary {
     padding: 10px 20px;
 }
 
-a.secondary {
+.secondary {
     background: none;
     border: 3px solid #FFFFFF;
     border-radius: 10px;
@@ -82,6 +82,10 @@ main {
 .register {
     height: 100vh;
     justify-content: space-between;
+}
+
+.register input {
+    width: 100%;
 }
 
 .login {
@@ -194,6 +198,28 @@ a:hover {
     padding-top: 86px;
 }
 
+.category {
+    background-color: #93D3D8;
+    padding-top: 86px;
+    min-height: 100vh;
+}
+
+.category .tile {
+    width: 100%;
+    height: 100px;
+}
+
+.category h2 {
+    color: white;
+    text-align: center;
+}
+
+.category .tile-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .statuses {
     background-color: #93D3D8;
     padding-top: 86px;
@@ -260,7 +286,7 @@ a:hover {
     color: white;
 }
 
-.back{
+.back a {
     font-size: 40px;
     color: #F47368;
     position: relative;

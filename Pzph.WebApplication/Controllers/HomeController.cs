@@ -1,9 +1,28 @@
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Pzph.RepositoryLayer;
+using Pzph.ServiceLayer.Users.Domain;
+using Pzph.ServiceLayer.Users.Services;
+using Pzph.WebApplication.Models.Users;
 
 namespace Pzph.WebApplication.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly SignInManager<User> _signInManager;
+        private readonly IUsersService _usersService;
+        private readonly PzphDbContext _dbContext;
+
+        public HomeController(SignInManager<User> signInManager, IUsersService usersService, PzphDbContext dbContext)
+        {
+            _signInManager = signInManager;
+            _usersService = usersService;
+            _dbContext = dbContext;
+        }
+
         [HttpGet("/")]
         public IActionResult Index()
         {
@@ -16,6 +35,14 @@ namespace Pzph.WebApplication.Controllers
             return View();
         }
         
+        [HttpPost("/register")]
+        public async Task<IActionResult> Register(RegisterModel model)
+        {
+            var user = await _usersService.Register(model.Name, model.Email, model.PhoneNumber, model.Password);
+            await _signInManager.SignInAsync(user, true);
+            return RedirectToAction("Choice");
+        }
+        
         [HttpGet("/login")]
         public IActionResult Login()
         {
@@ -23,81 +50,24 @@ namespace Pzph.WebApplication.Controllers
         }
         
         [HttpGet("/choice")]
-        public IActionResult Choice()
+        public async Task<IActionResult> Choice()
         {
-            return View();
+            var categories = await _dbContext.Category.ToListAsync();
+            return View(categories);
+        }
+
+        [HttpGet("/category/{categoryId}")]
+        public async Task<IActionResult> Category(string categoryId)
+        {
+            var category = await _dbContext.Category.FirstOrDefaultAsync(x => x.Id == categoryId);
+            return View(category);
         }
         
-        [HttpGet("/tourism")]
-        public IActionResult Tourism()
+        [HttpGet("/service/{serviceId}")]
+        public async Task<IActionResult> Service(string serviceId)
         {
-            return View();
-        }
-        
-        [HttpGet("/transport")]
-        public IActionResult Transport()
-        {
-            return View();
-        }
-        
-        [HttpGet("/construction")]
-        public IActionResult Construction()
-        {
-            return View();
-        }
-        
-        [HttpGet("/gastronomy")]
-        public IActionResult Gastronomy()
-        {
-            return View();
-        }
-        
-        [HttpGet("/it")]
-        public IActionResult IT()
-        {
-            return View();
-        }
-        
-        [HttpGet("/carmechanics")]
-        public IActionResult CarMechanics()
-        {
-            return View();
-        }
-        
-        [HttpGet("/hairdressing")]
-        public IActionResult Hairdressing()
-        {
-            return View();
-        }
-        
-        [HttpGet("/photography")]
-        public IActionResult Photography()
-        {
-            return View();
-        }
-        
-        [HttpGet("/gardening")]
-        public IActionResult Gardening()
-        {
-            return View();
-        }
-        
-        [HttpGet("/medicine")]
-        public IActionResult Medicine()
-        {
-            return View();
-        }
-        
-        [HttpGet("/electronics")]
-        public IActionResult Electronics()
-        {
-            return View();
-        }
-        
-        [HttpGet("/geodesy")]
-        public IActionResult Geodesy()
-        {
-            return View();
+            var service = await _dbContext.Services.FirstOrDefaultAsync(x => x.Id == serviceId);
+            return View(service);
         }
         
         [HttpGet("/newservice")]

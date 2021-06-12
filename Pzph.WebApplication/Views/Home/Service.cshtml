@@ -1,3 +1,5 @@
+@model Pzph.ServiceLayer.Contractors.Domain.Service
+
 @{
     Layout = null;
 }
@@ -6,7 +8,7 @@
 
 <html>
 <head>
-    <title>Gastronomia</title>
+    <title>IT</title>
     <link rel="stylesheet" href="~/styles/style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
@@ -19,16 +21,13 @@
     </div>
     <div class="service-description-panel">
         <div class="back">
-            <
+            <a onclick="window.history.back();return false;">
+                <
+            </a>
         </div>
-        <h3>Gastronomia</h3>
+        <h3>@Model.Name</h3>
         <div class="service-description-text">
-            Lorem Ipsum is simply dummy text of the printing
-            and typesetting industry. Lorem Ipsum has been the
-            industry’s standard dummy text ever since the 1500s,
-            when an unknown printer took a galley of type and
-            scrambled it to make a type specimen book. It has
-            survived not only five centuries, but also the leap.
+           @Model.Description
         </div>
         <a class="primary">Rezerwuj</a>
     </div>

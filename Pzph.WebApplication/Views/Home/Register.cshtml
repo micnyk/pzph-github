@@ -1,3 +1,5 @@
+@model Pzph.WebApplication.Models.Users.RegisterModel
+
 @{
     Layout = null;
 }
@@ -20,12 +22,15 @@
     <div class="register-panel">
         <h3>Utwórz<br/>Konto</h3>
         <div class="register-form">
-            <input name="name" placeholder="Imię"/>
-            <input/>
-            <input/>
-            <input/>
+            <form asp-controller="Home" asp-action="Register" method="post">
+                <input asp-for="Email" placeholder="E-mail"/>
+                <input asp-for="Name" placeholder="Nazwa"/>
+                <input asp-for="PhoneNumber" placeholder="Numer telefonu" />
+                <input asp-for="Password" type="password" placeholder="Hasło"/>
+                <br/>
+                <input type="submit" class="primary" value="Zarejestruj się" />
+            </form>
         </div>
-        <a class="primary">Zarejestruj się</a>
     </div>
 </main>
 </body>
