@@ -39,10 +39,10 @@ namespace Pzph.WebApplication.Controllers
         }
 
 
-        [HttpGet("/api/services")]
-        public async Task<IActionResult> GetService()
+        [HttpGet("/api/services/{categoryId}")]
+        public async Task<IActionResult> GetServices(string categoryId)
         {
-            var services = await _dbContext.Services.OrderByDescending(service => service.CreatedAt).ToListAsync();
+            var services = await _dbContext.Services.OrderByDescending(service => service.CreatedAt).Where(service => service.Category.Id == categoryId).ToListAsync();
 
             var serviceModel = services.Select(service => new ServiceModel
             {

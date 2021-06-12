@@ -19,7 +19,7 @@ namespace Pzph.RepositoryLayer
         public DbSet<Service> Services { get; set; }
 
         public DbSet<Booking> Bookings { get; set; }
-        public DbSet<Category> Category { get; set; }
+        public DbSet<Category> Categories { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
